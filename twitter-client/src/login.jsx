@@ -1,8 +1,10 @@
 import React from 'react';
 // import './Login.css';
-
-import { signInWithGoogle } from './firebase';
+import { GoogleLogin } from 'react-google-login';
+import { signInWithGoogle, startFirebaseUI } from './firebase';
 import { auth } from './firebase';
+
+import GoogleButton from 'react-google-button';
 
 class Login extends React.Component {
 
@@ -17,6 +19,7 @@ class Login extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    startFirebaseUI('#firebaseui');
     this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
       this.setState({ currentUser: user });
     });
@@ -43,8 +46,7 @@ class Login extends React.Component {
               <button onClick={() => auth.signOut()}>LOG OUT</button>
             </div>
             ) :
-
-            <button onClick={signInWithGoogle}>SIGN IN WITH GOOGLE</button>
+            <GoogleButton onClick={signInWithGoogle} />
 
         }
       </div >
