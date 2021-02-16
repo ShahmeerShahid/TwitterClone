@@ -25,4 +25,7 @@ npx create-react-app twitter-client
 npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 ```
 
-
+## Install Firebase Tools
+```sh
+npm install -g firebase-tools
+```
