@@ -1,8 +1,10 @@
+import TweetsPage from "./TweetsPage.js";
+
 function App() {
 	return (
-		<div>
-			<h></h>
-		</div>
+		<>
+			<TweetsPage />
+		</>
 	);
 }
 
