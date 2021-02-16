@@ -5,13 +5,15 @@ function Tweet(props) {
 	return (
 		<div>
 			<Box
-				w="30em"
+				width="70vw"
+				maxWidth="500px"
 				minHeight="10em"
 				background="lightgrey"
-				margin="5px"
 				border="solid"
-				borderRadius="5px"
-				padding="5px"
+				borderRadius="10px"
+				borderWidth="2px"
+				padding="10px"
+				overflowWrap="anywhere"
 			>
 				<Center>
 					<Heading>{username}</Heading>
