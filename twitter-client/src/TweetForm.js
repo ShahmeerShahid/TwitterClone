@@ -1,39 +1,42 @@
-import { Box, Button, FormControl, Input, InputGroup } from "@chakra-ui/react";
+import { Input, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
 function TweetForm({ addTweet }) {
-	const [username, setUsername] = useState("");
-	const [tweetContent, setTweetContents] = useState("");
+	const [title, setTitle] = useState("");
+	const handleTitleChange = (e) => setTitle(e.target.value);
 
-	const handleChange = (setStateFunction, e) => {
-		setStateFunction(e.target.value);
-	};
-
-	const handleUsernameChange = (e) => setUsername(e.target.value);
-	const handleTweetChange = (e) => setTweetContents(e.target.value);
+	const [tweettext, setTweet] = useState("");
+	const handleTweetChange = (e) => setTweet(e.target.value);
 
 	return (
-		<Box>
+		<>
 			<Input
-				value={username}
+				value={title}
+				onChange={handleTitleChange}
 				placeholder="Username"
-				onChange={handleUsernameChange}
+				size="md"
+				m={3}
 			/>
 			<Input
-				value={tweetContent}
-				placeholder="Tweet Contents"
+				value={tweettext}
 				onChange={handleTweetChange}
+				placeholder="Content"
+				size="md"
+				ml={3}
 			/>
 			<Button
+				w="100%"
+				m={3}
+				borderRadius="full"
 				onClick={() => {
-					addTweet(username, tweetContent);
-					setTweetContents("");
-					setUsername("");
+					addTweet(title, tweettext);
+					setTitle("");
+					setTweet("");
 				}}
 			>
-				Submit
+				Tweet
 			</Button>
-		</Box>
+		</>
 	);
 }
 
